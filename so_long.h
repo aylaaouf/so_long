@@ -7,13 +7,7 @@
 #include <stdio.h>
 #include "gnl/get_next_line.h"
 
-typedef struct s_game
-{
-	void	*mlx;
-	void	*win;
-	int		player_x;
-	int		player_y;
-}	t_game;
+#define TILE_SIZE 64
 
 typedef struct s_map
 {
@@ -21,6 +15,15 @@ typedef struct s_map
 	int	height;
 	char **map;
 }	t_map;
+
+typedef struct s_game
+{
+	void	*mlx;
+	void	*win;
+	int		player_x;
+	int		player_y;
+	t_map	*map;
+}	t_game;
 
 typedef struct s_var
 {
@@ -31,10 +34,17 @@ typedef struct s_var
 
 enum keys
 {
-	ESC_KEY = 65307
-	
+	ESC_KEY = 65307,
+	UP_KEY = 65362,
+	DOWN_KEY = 65364,
+	LEFT_KEY = 65361,
+	RIGHT_KEY = 65363
 };
 
+int		is_rectangular(t_map *map);
+int		is_exist(t_map *map);
+int		is_wall(t_map *map);
 t_map	*read_map(char *filename);
+int		valid_map(t_map *map);
 
 #endif
