@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "gnl/get_next_line.h"
+#include "minilibx-linux/mlx.h"
 
 #define TILE_SIZE 64
 
@@ -23,6 +24,11 @@ typedef struct s_game
 	int		player_x;
 	int		player_y;
 	t_map	*map;
+	void	*player;
+	void	*empty_space;
+	void	*wall;
+	void	*coin;
+	void	*gate;
 }	t_game;
 
 typedef struct s_var
@@ -41,10 +47,27 @@ enum keys
 	RIGHT_KEY = 65363
 };
 
-int		is_rectangular(t_map *map);
-int		is_exist(t_map *map);
-int		is_wall(t_map *map);
-t_map	*read_map(char *filename);
-int		valid_map(t_map *map);
 
+//parsing
+int		is_rectangular(t_map *map);
+int		is_wall(t_map *map);
+int		count_lines(char *filename);
+t_map	*read_map(char *filename);
+int		is_exist(t_map *map);
+int		no_collectible_more(t_game *game);
+void		valid_map(t_game *game, char *filename);
+
+//utils
+void	ft_putchar(char c);
+void	ft_putnbr(int nbr);
+
+
+//free
+void	free_map(t_map *map);
+void	clean_game(t_game *game);
+void	free_images(t_game *game);
+int		close_window(t_game *game);
+
+//game
+int		no_collectible_more(t_game *game);
 #endif

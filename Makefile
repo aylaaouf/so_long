@@ -1,8 +1,8 @@
 NAME = so_long
-SRC = main.c parsing.c gnl/get_next_line_utils.c gnl/get_next_line.c
+SRC = main.c parsing.c parsing_utils.c read_map.c main_utils.c main_utils2.c gnl/get_next_line_utils.c gnl/get_next_line.c
 OBJ = $(SRC:.c=.o)
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 MLX = minilibx-linux
 MLX_FLAGS = -L$(MLX) -lmlx -lXext -lX11
 
