@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 02:56:28 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/11 08:49:28 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 03:19:32 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	count_lines(char *filename)
 	if (fd < 0)
 	{
 		printf("Error: Wrong path");
-		return -1;
+		return (-1);
 	}
 	line = get_next_line(fd);
 	count = 0;
@@ -38,10 +38,9 @@ int	count_lines(char *filename)
 
 int	is_exist(t_map *map)
 {
-	int		i;
-	int		j;
 	t_var	var;
 
+	int i, (j);
 	if (!map || !map->map)
 		return (0);
 	i = 0;
