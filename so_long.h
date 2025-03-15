@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 03:21:32 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 08:05:47 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 10:52:05 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ typedef struct s_map
 	int		height;
 	char	**map;
 }			t_map;
+
+typedef	struct s_enemy
+{
+	int	x;
+	int	y;
+	int	deriction;
+}			t_enemy;
 
 typedef struct s_game
 {
