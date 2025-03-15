@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 02:37:52 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 07:27:38 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 08:05:17 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,19 @@
 
 int	key_press(int key, t_game *game)
 {
-	int			new_x;
-	int			new_y;
+	t_pos		pos;
 	static int	count;
 
-	new_x = game->player_x;
-	new_y = game->player_y;
+	pos.x = game->player_x;
+	pos.y = game->player_y;
 	if (key == ESC_KEY)
 	{
 		ft_printf("Exiting the game...\n");
 		close_window(game);
 	}
 	else
-		handle_movement(key, &new_x, &new_y, &count);
-	move_player(new_x, new_y, game);
+		handle_movement(key, &pos, &count, game);
+	move_player(pos.x, pos.y, game);
 	draw_map(game);
 	return (0);
 }

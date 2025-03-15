@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 03:54:40 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 03:59:00 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 08:06:28 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,16 +91,16 @@ void	move_player(int new_x, int new_y, t_game *game)
 	}
 }
 
-void	handle_movement(int key, int *new_x, int *new_y, int *count)
+void	handle_movement(int key, t_pos *pos, int *count, t_game *game)
 {
-	if (key == UP_KEY)
-		(*new_y)--;
-	else if (key == DOWN_KEY)
-		(*new_y)++;
-	else if (key == LEFT_KEY)
-		(*new_x)--;
-	else if (key == RIGHT_KEY)
-		(*new_x)++;
+	if (key == UP_KEY && game->map->map[pos->y - 1][pos->x] != '1')
+		pos->y--;
+	else if (key == DOWN_KEY && game->map->map[pos->y + 1][pos->x] != '1')
+		pos->y++;
+	else if (key == LEFT_KEY && game->map->map[pos->y][pos->x - 1] != '1')
+		pos->x--;
+	else if (key == RIGHT_KEY && game->map->map[pos->y][pos->x + 1] != '1')
+		pos->x++;
 	else
 		return ;
 	(*count)++;
