@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 08:40:59 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/11 08:41:25 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/14 03:19:37 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	close_window(t_game *game)
 	return (0);
 }
 
-int		no_collectible_more(t_game *game)
+int	no_collectible_more(t_game *game)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	while (i < game->map->height)
