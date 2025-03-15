@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 02:37:52 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 08:05:17 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 10:31:28 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ void	setup_window(t_game *game)
 			game->map->height * TILE_SIZE, "so_long");
 	mlx_images(game);
 	draw_map(game);
-	mlx_hook(game->win, 2, 1L << 0, key_press, game);
+	mlx_key_hook(game->win, key_press, game);
+	mlx_hook(game->win, 17, 0, close_window, game);
 	mlx_loop(game->mlx);
 }
 
