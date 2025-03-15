@@ -6,28 +6,11 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:58:31 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 03:23:24 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 07:09:36 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	is_rectangular(t_map *map)
-{
-	int	i;
-
-	if (!map || !map->map || !map->map[0])
-		return (0);
-	map->width = strlen(map->map[0]);
-	i = 1;
-	while (i < map->height)
-	{
-		if ((int)strlen(map->map[i]) != map->width)
-			return (0);
-		i++;
-	}
-	return (1);
-}
 
 int	is_wall(t_map *map)
 {
@@ -59,7 +42,7 @@ int	check_path(char *filename)
 
 	len = strlen(filename);
 	if (len <= 4 || strncmp(filename + len - 4, ".ber", 4) != 0
-		||filename[len - 5] == '/')
+		|| filename[len - 5] == '/')
 		return (0);
 	return (1);
 }
@@ -71,22 +54,36 @@ void	valid_map_helper(t_game *game, char *filename)
 		printf("Error: Failed to read map\n");
 		free_map(game->map);
 		clean_game(game);
-		exit(1);
+		exit(0);
 	}
 	if (!check_path(filename))
 	{
 		printf("Error: Invalid path\n");
 		free_map(game->map);
 		clean_game(game);
-		exit(1);
+		exit(0);
 	}
 	if (!is_rectangular(game->map))
 	{
 		printf("lmap mam9adach\n");
 		free_map(game->map);
 		clean_game(game);
-		exit(1);
+		exit(0);
 	}
+}
+
+int	is_valid_path(t_map *map, int player_x, int player_y)
+{
+	char	**map_copy;
+	int		flag;
+
+	map_copy = copy_map(map->map, map->height);
+	if (!map_copy)
+		return (0);
+	flood_fill(map_copy, player_x, player_y);
+	flag = check_map_is_exist(map_copy);
+	free_copy_of_map(map_copy);
+	return (flag);
 }
 
 void	valid_map(t_game *game, char *filename)
@@ -98,13 +95,21 @@ void	valid_map(t_game *game, char *filename)
 		printf("na9sa chihaja f map\n");
 		free_map(game->map);
 		clean_game(game);
-		exit(1);
+		exit(0);
 	}
 	if (!is_wall(game->map))
 	{
 		printf("lhit makamelch\n");
 		free_map(game->map);
 		clean_game(game);
-		exit(1);
+		exit(0);
+	}
+	find_player_position(game);
+	if (!is_valid_path(game->map, game->player_x, game->player_y))
+	{
+		printf("Error flood fill\n");
+		free_map(game->map);
+		clean_game(game);
+		exit(0);
 	}
 }
