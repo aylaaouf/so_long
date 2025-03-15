@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 07:57:06 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 06:45:12 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 07:33:30 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ static int	fill_map(int fd, t_map *map_data)
 	line = get_next_line(fd);
 	while (line)
 	{
-		newline = strchr(line, '\n');
+		newline = ft_strchr_l(line, '\n');
 		if (newline)
 			*newline = '\0';
 		if (i == 0)
-			map_data->width = strlen(line);
-		map_data->map[i] = strdup(line);
+			map_data->width = ft_strlen(line);
+		map_data->map[i] = ft_strdup(line);
 		free(line);
 		if (!map_data->map[i])
 			return (0);

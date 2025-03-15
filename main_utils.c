@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 08:37:21 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 06:44:06 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 07:30:28 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,14 @@ void	clean_game(t_game *game)
 	free(game);
 }
 
-void	ft_putchar(char c)
+void	ft_putchar_s(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_putnbr(int nbr)
+void	ft_putnbr_s(int nbr)
 {
 	if (nbr >= 10)
-		ft_putnbr(nbr / 10);
-	ft_putchar((nbr % 10) + '0');
+		ft_putnbr_s(nbr / 10);
+	ft_putchar_s((nbr % 10) + '0');
 }

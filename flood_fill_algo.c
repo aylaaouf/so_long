@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 06:41:32 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 07:06:08 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 07:26:12 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	**copy_map(char **map, int len)
 	i = 0;
 	while (map[i])
 	{
-		map_copy[i] = strdup(map[i]);
+		map_copy[i] = ft_strdup(map[i]);
 		if (!map_copy)
 		{
 			free_copy_of_map(map_copy);

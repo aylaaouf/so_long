@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 08:40:59 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 06:49:28 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 07:33:44 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ int	is_rectangular(t_map *map)
 
 	if (!map || !map->map || !map->map[0])
 		return (0);
-	map->width = strlen(map->map[0]);
+	map->width = ft_strlen(map->map[0]);
 	i = 1;
 	while (i < map->height)
 	{
-		if ((int)strlen(map->map[i]) != map->width)
+		if ((int)ft_strlen(map->map[i]) != map->width)
 			return (0);
 		i++;
 	}

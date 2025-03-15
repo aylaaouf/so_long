@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 02:56:28 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 06:42:50 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 07:27:45 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	count_lines(char *filename)
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 	{
-		printf("Error: Wrong path");
+		ft_printf("Error: Wrong path");
 		return (-1);
 	}
 	line = get_next_line(fd);

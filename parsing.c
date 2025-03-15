@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:58:31 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 07:09:36 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 07:25:59 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int	check_path(char *filename)
 {
 	int	len;
 
-	len = strlen(filename);
-	if (len <= 4 || strncmp(filename + len - 4, ".ber", 4) != 0
+	len = ft_strlen(filename);
+	if (len <= 4 || ft_strncmp(filename + len - 4, ".ber", 4) != 0
 		|| filename[len - 5] == '/')
 		return (0);
 	return (1);
@@ -51,21 +51,21 @@ void	valid_map_helper(t_game *game, char *filename)
 {
 	if (!game->map)
 	{
-		printf("Error: Failed to read map\n");
+		ft_printf("Error: Failed to read map\n");
 		free_map(game->map);
 		clean_game(game);
 		exit(0);
 	}
 	if (!check_path(filename))
 	{
-		printf("Error: Invalid path\n");
+		ft_printf("Error: Invalid path\n");
 		free_map(game->map);
 		clean_game(game);
 		exit(0);
 	}
 	if (!is_rectangular(game->map))
 	{
-		printf("lmap mam9adach\n");
+		ft_printf("lmap mam9adach\n");
 		free_map(game->map);
 		clean_game(game);
 		exit(0);
@@ -92,14 +92,14 @@ void	valid_map(t_game *game, char *filename)
 	valid_map_helper(game, filename);
 	if (!is_exist(game->map))
 	{
-		printf("na9sa chihaja f map\n");
+		ft_printf("na9sa chihaja f map\n");
 		free_map(game->map);
 		clean_game(game);
 		exit(0);
 	}
 	if (!is_wall(game->map))
 	{
-		printf("lhit makamelch\n");
+		ft_printf("lhit makamelch\n");
 		free_map(game->map);
 		clean_game(game);
 		exit(0);
@@ -107,7 +107,7 @@ void	valid_map(t_game *game, char *filename)
 	find_player_position(game);
 	if (!is_valid_path(game->map, game->player_x, game->player_y))
 	{
-		printf("Error flood fill\n");
+		ft_printf("Error flood fill\n");
 		free_map(game->map);
 		clean_game(game);
 		exit(0);

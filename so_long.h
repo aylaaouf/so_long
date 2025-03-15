@@ -6,19 +6,19 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 03:21:32 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 07:01:28 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 07:40:35 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "gnl/get_next_line.h"
 # include <fcntl.h>
 # include <mlx.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
+# include "gnl/get_next_line.h"
+# include "libft/libft.h"
+# include "printf/ft_printf.h"
+
 
 # define TILE_SIZE 64
 
@@ -80,8 +80,8 @@ int			no_collectible_more(t_game *game);
 void		valid_map(t_game *game, char *filename);
 
 // utils
-void		ft_putchar(char c);
-void		ft_putnbr(int nbr);
+void		ft_putchar_s(char c);
+void		ft_putnbr_s(int nbr);
 
 // free func
 void		free_map(t_map *map);

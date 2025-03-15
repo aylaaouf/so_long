@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 02:37:52 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 06:30:11 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 07:27:38 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	key_press(int key, t_game *game)
 	new_y = game->player_y;
 	if (key == ESC_KEY)
 	{
-		printf("Exiting the game...\n");
+		ft_printf("Exiting the game...\n");
 		close_window(game);
 	}
 	else
@@ -38,13 +38,13 @@ t_game	*init_game(int ac, char **av)
 
 	if (ac != 2)
 	{
-		printf("Usage: ./so_long map.ber\n");
+		ft_printf("Usage: ./so_long map.ber\n");
 		return (NULL);
 	}
 	game = malloc(sizeof(t_game));
 	if (!game)
 		return (NULL);
-	memset(game, 0, sizeof(t_game));
+	ft_memset(game, 0, sizeof(t_game));
 	game->mlx = mlx_init();
 	if (!game->mlx)
 	{
@@ -95,7 +95,7 @@ int	main(int ac, char **av)
 	game = init_game(ac, av);
 	if (!game || !game->map)
 	{
-		printf("Error: Invalid map or failed to read map\n");
+		ft_printf("Error: Invalid map or failed to read map\n");
 		clean_game(game);
 		return (0);
 	}
