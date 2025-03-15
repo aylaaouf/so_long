@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 03:21:32 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 03:59:57 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 07:01:28 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ enum		e_keys
 	LEFT_KEY = 65361,
 	RIGHT_KEY = 65363
 };
-//helpers for main file "norminette"
+// helpers for main file "norminette"
 void		mlx_images(t_game *game);
 void		draw_map_helper(t_game *game, char place, int x, int y);
 void		draw_map(t_game *game);
@@ -66,6 +66,11 @@ void		move_player(int new_x, int new_y, t_game *game);
 void		handle_movement(int key, int *new_x, int *new_y, int *count);
 
 // parsing
+void		find_player_position(t_game *game);
+void		free_copy_of_map(char **map_copy);
+void		flood_fill(char **map, int x, int y);
+int			check_map_is_exist(char **map);
+char		**copy_map(char **map, int len);
 int			is_rectangular(t_map *map);
 int			is_wall(t_map *map);
 int			count_lines(char *filename);
