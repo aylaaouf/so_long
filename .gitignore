@@ -2,3 +2,4 @@ minilibx-linux
 so_long
 .vscode
 *.o
+*.a
