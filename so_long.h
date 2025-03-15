@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 03:21:32 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 07:40:35 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 08:05:47 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,19 @@ enum		e_keys
 	LEFT_KEY = 65361,
 	RIGHT_KEY = 65363
 };
+
+typedef struct s_pos
+{
+	int x;
+	int y;
+}	t_pos;
+
 // helpers for main file "norminette"
 void		mlx_images(t_game *game);
 void		draw_map_helper(t_game *game, char place, int x, int y);
 void		draw_map(t_game *game);
 void		move_player(int new_x, int new_y, t_game *game);
-void		handle_movement(int key, int *new_x, int *new_y, int *count);
+void		handle_movement(int key, t_pos *pos, int *count, t_game *game);
 
 // parsing
 void		find_player_position(t_game *game);
