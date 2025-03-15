@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 03:21:32 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 10:52:05 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 15:13:08 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 # define SO_LONG_H
 
 # include <fcntl.h>
-# include <mlx.h>
+// # include <mlx.h>
 # include "gnl/get_next_line.h"
 # include "libft/libft.h"
+# include "minilibx-linux/mlx.h"
 # include "printf/ft_printf.h"
-
 
 # define TILE_SIZE 64
 
@@ -29,11 +29,11 @@ typedef struct s_map
 	char	**map;
 }			t_map;
 
-typedef	struct s_enemy
+typedef struct s_enemy
 {
-	int	x;
-	int	y;
-	int	deriction;
+	int		x;
+	int		y;
+	int		direction;
 }			t_enemy;
 
 typedef struct s_game
@@ -42,12 +42,17 @@ typedef struct s_game
 	void	*win;
 	int		player_x;
 	int		player_y;
+	int		moves_count;
+	char	*moves_count_str;
 	t_map	*map;
 	void	*player;
 	void	*empty_space;
+	void	*killer;
 	void	*wall;
 	void	*coin;
 	void	*gate;
+	void	*animation;
+	t_enemy	enemy;
 }			t_game;
 
 typedef struct s_var
@@ -68,16 +73,16 @@ enum		e_keys
 
 typedef struct s_pos
 {
-	int x;
-	int y;
-}	t_pos;
+	int		x;
+	int		y;
+}			t_pos;
 
 // helpers for main file "norminette"
 void		mlx_images(t_game *game);
 void		draw_map_helper(t_game *game, char place, int x, int y);
 void		draw_map(t_game *game);
 void		move_player(int new_x, int new_y, t_game *game);
-void		handle_movement(int key, t_pos *pos, int *count, t_game *game);
+void		handle_movement(int key, t_pos *pos, t_game *game);
 
 // parsing
 void		find_player_position(t_game *game);
@@ -105,4 +110,9 @@ int			close_window(t_game *game);
 
 // game
 int			no_collectible_more(t_game *game);
+
+// enemy
+void		find_enemy(t_game *game);
+int			enemy_patrol(t_game *game);
+
 #endif

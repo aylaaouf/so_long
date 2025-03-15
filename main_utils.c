@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 08:37:21 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 07:30:28 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 15:32:46 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,23 @@ void	free_images(t_game *game)
 		mlx_destroy_image(game->mlx, game->wall);
 	if (game->gate)
 		mlx_destroy_image(game->mlx, game->gate);
+	if (game->animation)
+		mlx_destroy_image(game->mlx, game->animation);
+	if (game->killer)
+		mlx_destroy_image(game->mlx, game->killer);
 	game->coin = NULL;
 	game->empty_space = NULL;
 	game->player = NULL;
 	game->wall = NULL;
 	game->gate = NULL;
+	game->animation = NULL;
+	game->killer = NULL;
 }
 
 void	clean_game(t_game *game)
 {
+	if (game->moves_count_str != NULL)
+		free(game->moves_count_str);
 	if (!game)
 		return ;
 	free_images(game);

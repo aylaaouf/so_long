@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 02:37:52 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 10:31:28 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 14:24:45 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	key_press(int key, t_game *game)
 {
-	t_pos		pos;
-	static int	count;
+	t_pos	pos;
 
 	pos.x = game->player_x;
 	pos.y = game->player_y;
@@ -25,7 +24,7 @@ int	key_press(int key, t_game *game)
 		close_window(game);
 	}
 	else
-		handle_movement(key, &pos, &count, game);
+		handle_movement(key, &pos, game);
 	move_player(pos.x, pos.y, game);
 	draw_map(game);
 	return (0);
@@ -85,6 +84,7 @@ void	setup_window(t_game *game)
 	draw_map(game);
 	mlx_key_hook(game->win, key_press, game);
 	mlx_hook(game->win, 17, 0, close_window, game);
+	mlx_loop_hook(game->mlx, enemy_patrol, game);
 	mlx_loop(game->mlx);
 }
 
@@ -100,6 +100,7 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	find_player_position(game);
+	find_enemy(game);
 	setup_window(game);
 	return (1);
 }

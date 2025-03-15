@@ -1,5 +1,5 @@
 NAME = so_long
-SRC = main.c main_helper.c main_utils.c main_utils2.c parsing.c parsing_utils.c read_map.c flood_fill_algo.c gnl/get_next_line_utils.c gnl/get_next_line.c
+SRC = main.c main_helper.c main_utils.c main_utils2.c enemy_algo.c parsing.c parsing_utils.c read_map.c flood_fill_algo.c gnl/get_next_line_utils.c gnl/get_next_line.c
 OBJ = $(SRC:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -14,22 +14,22 @@ PRINTF = $(PRINTF_DIR)/libftprintf.a
 all: $(LIBFT) $(PRINTF) $(NAME)
 
 $(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR)
+	@$(MAKE) -C $(LIBFT_DIR)
 
 $(PRINTF):
-	$(MAKE) -C $(PRINTF_DIR)
+	@$(MAKE) -C $(PRINTF_DIR)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -L$(LIBFT_DIR) -lft -L$(PRINTF_DIR) -lftprintf
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -L$(LIBFT_DIR) -lft -L$(PRINTF_DIR) -lftprintf $(MLX_FLAGS)
 
 clean:
 	rm -f $(OBJ)
-	$(MAKE) -C $(LIBFT_DIR) clean
-	$(MAKE) -C $(PRINTF_DIR) clean
+	@$(MAKE) -C $(LIBFT_DIR) clean
+	@$(MAKE) -C $(PRINTF_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
-	$(MAKE) -C $(LIBFT_DIR) fclean
-	$(MAKE) -C $(PRINTF_DIR) fclean
+	@$(MAKE) -C $(LIBFT_DIR) fclean
+	@$(MAKE) -C $(PRINTF_DIR) fclean
 
 re: fclean all
