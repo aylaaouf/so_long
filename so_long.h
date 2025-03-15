@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 03:21:32 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 15:13:08 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/15 15:52:51 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_game
 	void	*gate;
 	void	*animation;
 	t_enemy	enemy;
+	int		enemy_count;
 }			t_game;
 
 typedef struct s_var
