@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 03:21:32 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 15:52:51 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:56:58 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ int			no_collectible_more(t_game *game);
 
 // enemy
 void		find_enemy(t_game *game);
+int			find_enemy_before(t_game *game);
 int			enemy_patrol(t_game *game);
 
 #endif
