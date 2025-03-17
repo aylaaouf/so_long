@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 02:37:52 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 14:24:45 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:56:45 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ void	setup_window(t_game *game)
 	draw_map(game);
 	mlx_key_hook(game->win, key_press, game);
 	mlx_hook(game->win, 17, 0, close_window, game);
-	mlx_loop_hook(game->mlx, enemy_patrol, game);
+	if (find_enemy_before(game))
+		mlx_loop_hook(game->mlx, enemy_patrol, game);
 	mlx_loop(game->mlx);
 }
 
