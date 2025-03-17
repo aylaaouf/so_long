@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 02:56:28 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 07:27:45 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:06:17 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,23 @@ int	is_exist(t_map *map)
 		i++;
 	}
 	return (var.player == 1 && var.exit == 1 && var.coins > 0);
+}
+
+int	find_enemy_before(t_game *game)
+{
+	int y, (x);
+	y = 0;
+	x = 0;
+	while (game->map->map[y])
+	{
+		x = 0;
+		while (game->map->map[y][x])
+		{
+			if (game->map->map[y][x] == 'X')
+				return (1);
+			x++;
+		}
+		y++;
+	}
+	return (0);
 }
