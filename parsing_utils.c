@@ -6,11 +6,21 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 02:56:28 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/17 17:06:17 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/18 21:19:51 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	get_size_width_height(char **map, int *height, int *width)
+{
+	*height = 0;
+	*width = 0;
+	while (map[*height])
+		(*height)++;
+	while (map[0][*width])
+		(*width)++;
+}
 
 int	count_lines(char *filename)
 {
@@ -47,10 +57,10 @@ int	is_exist(t_map *map)
 	var.player = 0;
 	var.exit = 0;
 	var.coins = 0;
-	while (i < map->height)
+	while (map->map[i])
 	{
 		j = 0;
-		while (j < map->width)
+		while (map->map[i][j])
 		{
 			if (map->map[i][j] == 'P')
 				var.player++;
