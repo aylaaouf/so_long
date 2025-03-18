@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 19:23:40 by aylaaouf          #+#    #+#             */
-/*   Updated: 2024/12/14 23:53:55 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/18 20:58:29 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ char	*ft_strchr(char *s, int c)
 	while (s[i])
 	{
 		if ((unsigned char)s[i] == (unsigned char)c)
-		{
 			return ((char *)(&s[i]));
-		}
 		i++;
 	}
 	if ((unsigned char)s[i] == (unsigned char)c)
@@ -57,29 +55,26 @@ char	*ft_strdup(const char *s1)
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
-	size_t	j;
-	size_t	len;
-	char	*str;
+	char	*result;
+	int		i;
+	int		j;
 
 	if (!s1)
-		s1 = ft_strdup("");
-	if (!s2)
-		s2 = ft_strdup("");
+		return (ft_strdup(s2));
+	else if (!s2)
+		return (ft_strdup(s1));
+	result = malloc((ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!result)
+		return (NULL);
 	i = 0;
 	j = 0;
-	len = ft_strlen(s1) + ft_strlen(s2);
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (free(str), NULL);
 	while (s1[i])
-		str[j++] = s1[i++];
+		result[j++] = s1[i++];
 	i = 0;
 	while (s2[i])
-		str[j++] = s2[i++];
-	str[j] = '\0';
-	free((void *)s1);
-	return (str);
+		result[j++] = s2[i++];
+	result[j] = '\0';
+	return (result);
 }
 
 size_t	ft_strlen(const char *s)
@@ -87,9 +82,7 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
-	while (s[i])
-	{
+	while (s && s[i])
 		i++;
-	}
 	return (i);
 }
