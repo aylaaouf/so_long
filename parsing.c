@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:58:31 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 07:25:59 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/18 21:19:45 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,16 @@ int	is_wall(t_map *map)
 
 	if (!map || !map->map)
 		return (0);
+	get_size_width_height(map->map, &map->height, &map->width);
 	i = 0;
-	while (i < map->width)
+	while (map->map[i])
 	{
 		if (map->map[0][i] != '1' || map->map[map->height - 1][i] != '1')
 			return (0);
 		i++;
 	}
 	j = 0;
-	while (j < map->height)
+	while (map->map[j])
 	{
 		if (map->map[j][0] != '1' || map->map[j][map->width - 1] != '1')
 			return (0);
