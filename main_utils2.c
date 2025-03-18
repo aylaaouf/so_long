@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 08:40:59 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 07:33:44 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/18 21:21:56 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,23 @@ int	no_collectible_more(t_game *game)
 
 int	is_rectangular(t_map *map)
 {
-	int	i;
+	int		i;
+	int		j;
+	char	**map2;
 
+	map2 = map->map;
 	if (!map || !map->map || !map->map[0])
 		return (0);
-	map->width = ft_strlen(map->map[0]);
-	i = 1;
-	while (i < map->height)
+	i = 0;
+	while (map2[i])
 	{
-		if ((int)ft_strlen(map->map[i]) != map->width)
-			return (0);
+		j = i + 1;
+		while (map2[j])
+		{
+			if (ft_strlen(map2[i]) != ft_strlen(map2[j]))
+				return (0);
+			j++;
+		}
 		i++;
 	}
 	return (1);
