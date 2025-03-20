@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 03:21:32 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/18 21:20:18 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/20 01:52:55 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct s_pos
 }			t_pos;
 
 // helpers for main file "norminette"
+void		helper_valid_path(t_game *game);
 void		get_size_width_height(char **map, int *height, int *width);
 void		mlx_images(t_game *game);
 void		draw_map_helper(t_game *game, char place, int x, int y);
