@@ -1,5 +1,5 @@
 NAME = so_long
-SRC = main.c main_helper.c main_utils.c main_utils2.c enemy_algo.c parsing.c parsing_utils.c read_map.c flood_fill_algo.c gnl/get_next_line_utils.c gnl/get_next_line.c
+SRC = main.c main_helper.c main_utils.c main_utils2.c enemy_algo.c parsing.c parsing_utils.c read_map.c flood_fill_algo.c gnl/get_next_line_utils.c gnl/get_next_line.c parsing_helper.c
 OBJ = $(SRC:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
