@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 10:44:26 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 16:07:45 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/19 23:17:00 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	find_enemy(t_game *game)
 
 void	helper(t_game *game)
 {
-	ft_printf("Game Over! enemy caught you.\n");
+	ft_printf("You've been absorbed by the Black Hole.\n");
 	free_map(game->map);
 	clean_game(game);
 	exit(0);
