@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 08:40:59 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/18 21:21:56 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/20 01:06:11 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,16 @@ int	is_rectangular(t_map *map)
 {
 	int		i;
 	int		j;
-	char	**map2;
 
-	map2 = map->map;
 	if (!map || !map->map || !map->map[0])
 		return (0);
 	i = 0;
-	while (map2[i])
+	while (map->map[i])
 	{
 		j = i + 1;
-		while (map2[j])
+		while (map->map[j])
 		{
-			if (ft_strlen(map2[i]) != ft_strlen(map2[j]))
+			if (ft_strlen(map->map[i]) != ft_strlen(map->map[j]))
 				return (0);
 			j++;
 		}
