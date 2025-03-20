@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 19:24:26 by aylaaouf          #+#    #+#             */
-/*   Updated: 2024/12/15 23:03:55 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/20 01:04:47 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1024
+#  define BUFFER_SIZE 1
 # endif
 
+int		helper_a(int fd, char *buffer);
 char	*get_next_line(int fd);
 char	*ft_strchr(char *s, int c);
 char	*ft_strdup(const char *s1);

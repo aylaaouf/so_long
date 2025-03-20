@@ -6,11 +6,22 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 19:23:40 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/18 20:58:29 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/20 01:04:28 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+int	helper_a(int fd, char *buffer)
+{
+	if (fd < 0 || BUFFER_SIZE <= 0)
+	{
+		if (buffer != NULL)
+			free(buffer);
+		return (0);
+	}
+	return (1);
+}
 
 char	*ft_strchr(char *s, int c)
 {
@@ -74,6 +85,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (s2[i])
 		result[j++] = s2[i++];
 	result[j] = '\0';
+	free((void *)s1);
 	return (result);
 }
 

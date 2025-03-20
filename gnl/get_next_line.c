@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 02:46:59 by aylaaouf          #+#    #+#             */
-/*   Updated: 2024/12/15 23:02:53 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/20 01:05:36 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,23 @@ static char	*update_buffer(char *buffer)
 	return (new_buffer);
 }
 
+static char	*free_buffer(char *buffer)
+{
+	free(buffer);
+	return (NULL);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*buffer;
 	char		*line;
 	char		*new_buffer;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (!helper_a(fd, buffer))
+	{
+		buffer = NULL;
 		return (NULL);
+	}
 	buffer = read_buffer(fd, buffer);
 	if (!buffer)
 		return (NULL);
@@ -103,10 +112,7 @@ char	*get_next_line(int fd)
 	}
 	new_buffer = update_buffer(buffer);
 	if (!new_buffer)
-	{
-		return (NULL);
-		buffer = NULL;
-	}
+		buffer = free_buffer(buffer);
 	else
 		buffer = new_buffer;
 	return (line);
