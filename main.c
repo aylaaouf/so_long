@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 02:37:52 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/20 06:12:19 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/20 07:09:27 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_game	*init_game(int ac, char **av)
 	if (ac != 2)
 	{
 		ft_printf("Usage: ./so_long map.ber\n");
-		return (NULL);
+		exit(1);
 	}
 	game = malloc(sizeof(t_game));
 	if (!game)
