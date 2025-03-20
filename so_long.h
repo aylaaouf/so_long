@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 03:21:32 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/20 05:57:36 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/20 07:12:52 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,5 +121,7 @@ void		find_enemy(t_game *game);
 int			find_enemy_before(t_game *game);
 int			enemy_patrol(t_game *game);
 void		helper(t_game *game);
+int			runer(t_game *game);
+void		helper_parsing(t_game *game, char *filename);
 
 #endif
