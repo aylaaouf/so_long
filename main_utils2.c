@@ -6,11 +6,26 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 08:40:59 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/20 01:53:30 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/20 06:12:28 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int runer(t_game *game)
+{
+	static int frame;
+	
+	if (find_enemy_before(game))
+		enemy_patrol(game);
+	frame++;
+	if (frame == 100)
+	{
+		draw_map(game);
+		frame = 0;
+	}
+	return (0);
+}
 
 int	close_window(t_game *game)
 {
