@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 08:40:59 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/20 01:06:11 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/20 01:53:30 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,12 @@ int	is_rectangular(t_map *map)
 		i++;
 	}
 	return (1);
+}
+
+void	helper_valid_path(t_game *game)
+{
+	ft_printf("Error: Map is not accessible.\n");
+	free_map(game->map);
+	clean_game(game);
+	exit(0);
 }
