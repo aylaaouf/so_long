@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 07:57:06 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/20 01:38:55 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/20 02:58:23 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,6 @@ static char	**fill_map(char ***map, int fd)
 	while (line)
 	{
 		clean_line(line);
-		if (line[0] == '\0')
-		{
-			free(line);
-			break ;
-		}
 		*map = realloc(*map, (size + 1) * sizeof(char *));
 		if (!(*map))
 			return (free(*map), free_map_2(*map), NULL);
