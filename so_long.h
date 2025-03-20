@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 03:21:32 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/20 02:17:10 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/20 05:57:36 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct s_pos
 }			t_pos;
 
 // helpers for main file "norminette"
+int			check_path(char *filename);
 void		helper_valid_path(t_game *game);
 void		get_size_width_height(char **map, int *height, int *width);
 void		mlx_images(t_game *game);
@@ -119,5 +120,6 @@ int			no_collectible_more(t_game *game);
 void		find_enemy(t_game *game);
 int			find_enemy_before(t_game *game);
 int			enemy_patrol(t_game *game);
+void		helper(t_game *game);
 
 #endif
