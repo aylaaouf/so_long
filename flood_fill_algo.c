@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 06:41:32 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 07:26:12 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/20 03:15:28 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,14 @@ int	check_map_is_exist(char **map)
 
 void	flood_fill(char **map, int x, int y)
 {
-	if (x <= 0 || y <= 0 || map[y][x] == '1' || map[y][x] == 'X')
+	if (x <= 0 || y <= 0 || map[y][x] == '1')
 		return ;
 	if (map[y][x] == 'E')
 	{
 		map[y][x] = '1';
 		return ;
 	}
-	map[y][x] = 'X';
+	map[y][x] = '1';
 	flood_fill(map, x + 1, y);
 	flood_fill(map, x - 1, y);
 	flood_fill(map, x, y + 1);
