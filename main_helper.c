@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 03:54:40 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/15 15:30:53 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/20 05:46:52 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ void	move_player(int new_x, int new_y, t_game *game)
 		game->player_y = new_y;
 		game->map->map[game->player_y][game->player_x] = 'P';
 	}
+	else if (game->map->map[new_y][new_x] == 'X')
+		helper(game);
 }
 
 void	handle_movement(int key, t_pos *pos, t_game *game)
