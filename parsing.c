@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:58:31 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/20 02:16:30 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/20 07:13:26 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,12 @@ int	check_path(char *filename)
 
 void	valid_map_helper(t_game *game, char *filename)
 {
+	(void)filename;
 	get_size_width_height(game->map->map, &game->map->height,
 		&game->map->width);
 	if (!game->map)
 	{
 		ft_printf("Error: Failed to read map.\n");
-		free_map(game->map);
-		clean_game(game);
-		exit(0);
-	}
-	if (!check_path(filename))
-	{
-		ft_printf("Error: Invalid path.\n");
 		free_map(game->map);
 		clean_game(game);
 		exit(0);
@@ -91,7 +85,7 @@ int	is_valid_path(t_map *map, int player_x, int player_y)
 
 void	valid_map(t_game *game, char *filename)
 {
-	game->map = read_map(filename);
+	helper_parsing(game, filename);
 	valid_map_helper(game, filename);
 	get_size_width_height(game->map->map,
 		&game->map->height, &game->map->width);
