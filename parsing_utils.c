@@ -6,11 +6,37 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 02:56:28 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/18 21:19:51 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/20 02:16:39 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	invalid_char(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (game->map->map[i])
+	{
+		j = 0;
+		while (game->map->map[i][j])
+		{
+			if (game->map->map[i][j] != 'C' && game->map->map[i][j] != 'E' &&
+				game->map->map[i][j] != 'P' && game->map->map[i][j] != '1' &&
+				game->map->map[i][j] != '0' && game->map->map[i][j] != 'X')
+			{
+				ft_printf("Error: Invalid Character in map\n");
+				free_map(game->map);
+				clean_game(game);
+				exit(0);
+			}
+			j++;
+		}
+		i++;
+	}
+}
 
 void	get_size_width_height(char **map, int *height, int *width)
 {

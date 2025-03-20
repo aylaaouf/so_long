@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 03:21:32 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/20 01:52:55 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/20 02:17:10 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void		move_player(int new_x, int new_y, t_game *game);
 void		handle_movement(int key, t_pos *pos, t_game *game);
 
 // parsing
+void		invalid_char(t_game *game);
 void		find_player_position(t_game *game);
 void		free_copy_of_map(char **map_copy);
 void		flood_fill(char **map, int x, int y);

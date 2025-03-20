@@ -6,7 +6,7 @@
 /*   By: aylaaouf <aylaaouf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:58:31 by aylaaouf          #+#    #+#             */
-/*   Updated: 2025/03/20 01:53:02 by aylaaouf         ###   ########.fr       */
+/*   Updated: 2025/03/20 02:16:30 by aylaaouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,4 +112,5 @@ void	valid_map(t_game *game, char *filename)
 	find_player_position(game);
 	if (!is_valid_path(game->map, game->player_x, game->player_y))
 		helper_valid_path(game);
+	invalid_char(game);
 }
